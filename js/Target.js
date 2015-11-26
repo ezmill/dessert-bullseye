@@ -22,27 +22,28 @@ function Target(){
         // }
     }
     this.drawCircle = function(radius, x, y){
-      this.ctx.beginPath();
-      this.ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
-      this.ctx.lineWidth = this.lineWidth;
+      // this.ctx.beginPath();
+      // this.ctx.arc(x, y, radius, 0, 2 * Math.PI, false);
+      // this.ctx.lineWidth = this.lineWidth;
 
       this.gradient = this.ctx.createLinearGradient(0,0,0,this.canvas.height);
       this.gradient.addColorStop(0, this.colors[0]);
       this.gradient.addColorStop(1, this.colors[1]);
 
-      this.ctx.strokeStyle = this.gradient;
+      this.ctx.fillStyle = this.gradient;
       // this.ctx.strokeStyle = hslaColor(radius/3, 100, 50, this.alpha);
       // this.ctx.strokeStyle = 'rgba(' + Math.random()*255 + ',' + Math.random()*255 + ',' + Math.random()*255 + ',1.0);';
-      this.ctx.stroke();
+      this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
     }
     this.update = function(){
         this.hue += 0.5;
         this.sampleColors();
-        this.ctx.fillStyle = "white";
-        this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
-        for(var i = 0; i < this.canvas.width; i++){
-            this.drawCircle(i*2, this.centerX, this.centerY);
-        }
+        this.drawCircle();
+        // this.ctx.fillStyle = "white";
+        // this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+        // for(var i = 0; i < this.canvas.width; i++){
+            // this.drawCircle(i*2, this.centerX, this.centerY);
+        // }
     }
     this.sampleColors = function(){
         this.colors[0] = hslaColor(this.hue, this.saturation, this.lightness, this.alpha)

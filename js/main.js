@@ -45,6 +45,9 @@ function init() {
 
     scene = new THREE.Scene();
     cs = new CustomShaders();
+    gradient = new Target();
+    gradient.init();
+    tex = new THREE.Texture(gradient.canvas);
     material = new THREE.ShaderMaterial({
         uniforms: cs.circleShader.uniforms,
         fragmentShader: cs.circleShader.fragmentShader,
@@ -53,6 +56,7 @@ function init() {
     material.uniforms["resolution"].value = new THREE.Vector2(window.innerWidth, window.innerHeight);
     material.uniforms["time"].value = 0.0;
     material.uniforms["rings"].value = ringVal;
+    material.uniforms["texture"].value = tex;
     geometry = new THREE.PlaneBufferGeometry(renderSize.x, renderSize.y);
     mesh = new THREE.Mesh(geometry, material);
     scene.add(mesh);
