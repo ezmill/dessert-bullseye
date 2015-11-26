@@ -36,7 +36,7 @@ var matcaps = [
     "assets/textures/tumblr_niubkwwc9L1u9u26oo1_r1_540.png",
     // "assets/textures/macrea.jpg",
     // "assets/textures/MW-dragon-purple-thumb.jpg",
-    // "assets/textures/shhh3.jpg",
+    "assets/textures/shhh3.jpg",
     // "assets/textures/gold2.jpg",
 ]
 for(var i = 0; i < matcaps.length; i++){
