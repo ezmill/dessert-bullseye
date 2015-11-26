@@ -39,6 +39,10 @@ var matcaps = [
     // "assets/textures/shhh3.jpg",
     // "assets/textures/gold2.jpg",
 ]
+for(var i = 0; i < matcaps.length; i++){
+    var test = new Image();
+    test.src = matcaps[i];
+}
 var video, texture;
 var expand = false;
 var cameraPos = document.getElementById("cameraPos");
